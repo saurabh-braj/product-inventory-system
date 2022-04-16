@@ -1,0 +1,20 @@
+@import '../../styles/variables';
+
+.header-container {
+    height: 100px;
+    background: map-get($apm-colors, 'apm-white');
+}
+
+.footer-container {
+    background: map-get($apm-colors, 'apm-gray');
+    color: map-get($apm-colors, 'apm-white');
+    height: 40px;
+}
+
+.main-container {
+    height: calc(100vh - 140px);
+    background: white;
+    border-left: 1px solid map-get($apm-colors, 'primary');
+    border-right: 1px solid map-get($apm-colors, 'primary');
+    border-radius: 3px;
+}

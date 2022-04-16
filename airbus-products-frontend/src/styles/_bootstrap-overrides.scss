@@ -1,0 +1,41 @@
+@import '../styles/variables';
+
+.input-group > .form-control, .input-group > .form-select {
+    min-width: 200px !important;
+}
+
+.btn {
+    font-size: map-get($apm-font-size, 'font-size-4') !important;
+    
+    @media screen and (max-width: 500px) {
+        font-size: map-get($apm-font-size, 'font-size-5') !important;
+    }
+}
+
+.modal-content {
+    border: none;
+}
+
+.modal-header {
+    background: map-get($apm-colors, 'apm-light-gray') !important;;
+}
+
+.form-control, .form-select, .btn {
+    border: 1px solid #dfd5d5 !important;
+    // background: map-get($apm-colors, 'apm-light-gray') !important;
+    border-radius: 0 !important;
+
+    &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
+
+.tooltip-inner {
+    font-family: $apm-font-family !important;
+    padding: 0.5rem !important;
+}
+
+label {
+    font-size: map-get($apm-font-size, 'font-size-4') !important;
+}

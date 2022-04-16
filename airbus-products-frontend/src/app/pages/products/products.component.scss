@@ -1,0 +1,17 @@
+@import '../../../styles/commons';
+@import '../../../styles/variables';
+
+.custom-header {
+    background: linear-gradient(135deg, #1c7737, #16548a);
+    color: map-get($apm-colors, 'apm-white');
+}
+
+.table-data-container {
+    height: calc(100vh - 260px);
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.product-action-container {
+    padding: 1rem 2.4rem 0 2.4rem;
+}

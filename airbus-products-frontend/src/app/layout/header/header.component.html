@@ -1,0 +1,27 @@
+<div class="d-flex align-items-center justify-content-between header-name-container">
+    <div class="d-flex align-items-center">
+        <div class="logo-container"></div>
+        <div class="vertical-line ms-3"></div>
+        <div class="abm-heading-2 ms-3">Airbus Products Inventory</div>
+    </div>
+    <div  [ngbPopover]="userContent" [popoverTitle]="userTitle">
+        <span class="material-icons material-icon-profile"> account_circle</span>
+    </div>
+</div>
+
+<div class="nav-bar-container d-flex">
+</div>
+
+<ng-template #userTitle>
+    <div class="p-md-3 abm-label-1 fw-bold">User Profile</div>
+</ng-template>
+
+<ng-template #userContent>
+    <div>
+        <div class="abm-label-1">saurabh.braj@gmail.com</div>
+        <div (click)="logout()" class="d-flex align-items-center">
+            <a class="abm-link-1">Logout</a>
+            <span class="material-icons-outlined material-icons-login ms-3">logout</span>
+        </div>
+    </div>
+</ng-template>

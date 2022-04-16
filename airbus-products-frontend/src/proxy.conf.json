@@ -1,0 +1,12 @@
+{
+  "/airbus-inventory/login": {
+    "target": "http://localhost:9000/",
+    "secure": false,
+    "changeOrigin": false
+  },
+  "/airbus-inventory/api/**": {
+    "target": "http://localhost:9000/",
+    "secure": false,
+    "changeOrigin": false
+  }
+}

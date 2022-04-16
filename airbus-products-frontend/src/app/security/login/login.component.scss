@@ -1,0 +1,24 @@
+@import '../../../styles/variables';
+@import '../../../styles/commons';
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.airbus-image-container {
+    background-image: url('../../../assets/img/A380.jpg');
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+}
+
+.responsive-layout {
+    @media screen and (max-width: 700px) {
+        flex-direction: column;
+    }
+}

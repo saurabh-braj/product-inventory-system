@@ -1,0 +1,27 @@
+
+.product-list-container {
+    width: 100%;
+}
+
+.list-table-container {
+    height: calc(100vh - 265px);
+    overflow: hidden;
+    overflow-y: auto;
+    border-top: 1px solid rgba(0,0,0,.12);
+}
+
+.mat-column-productId, .mat-column-units {
+    width: 150px !important;
+}
+
+.mat-column-category {
+    width: 250px !important;
+}
+
+.mat-column-name {
+    width: 250px !important;
+}
+
+.mat-column-actions {
+    width: 70px !important;
+}

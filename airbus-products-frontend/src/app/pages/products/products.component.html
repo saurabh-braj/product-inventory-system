@@ -1,0 +1,21 @@
+<section>
+    <div class="abm-heading-1 product-action-container">Airbus Inventory - Available Products List</div>
+
+    <div>
+        <app-product-filter
+            [productCategory]="productCategory"
+            (filterEmmiter)="onFilterChange($event)"
+            (resetEmmiter)="getProducts()">
+        </app-product-filter>
+    </div>
+
+    <div class="mt-3">
+        <app-product-list
+            [totalProducts]="totalProducts"
+            [productsData]="products" 
+            (updateEmmiter)="update($event)" 
+            (deleteEmmiter)="onDelete($event)"
+            (addEmmiter)="addProduct()">
+        </app-product-list>
+    </div>
+</section>

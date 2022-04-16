@@ -1,0 +1,101 @@
+@import 'variables';
+
+.mat-icon-basic {
+    font-family: 'Material Icons';
+    cursor: pointer;
+}
+
+.mat-card {
+    font-family: $apm-font-family !important;
+}
+
+.material-icons-lock {
+    font-size: map-get($apm-font-size, 'font-size-2');
+    cursor: pointer;
+}
+
+.material-icon-profile {
+    color: map-get($apm-colors, 'primary');
+    cursor: pointer;
+    font-size: map-get($apm-font-size, 'font-size-l');
+}
+
+.material-icons-edit {
+    color: map-get($apm-colors, 'apm-green');
+    cursor: pointer;
+    font-size: map-get($apm-font-size, 'font-size-1');
+}
+
+.material-icons-home {
+    color: map-get($apm-colors, 'apm-white');
+    font-size: map-get($apm-font-size, 'font-size-1');
+}
+
+.material-icons-close {
+    cursor: pointer;
+    font-size: map-get($apm-font-size, 'font-size-1');
+}
+
+.material-icons-delete {
+    color: map-get($apm-colors, 'apm-red');
+    cursor: pointer;
+    font-size: map-get($apm-font-size, 'font-size-1');
+}
+
+.material-icons-verify {
+    color: map-get($apm-colors, 'apm-green');
+    font-size: map-get($apm-font-size, 'font-size-l');
+}
+
+.mat-elevation-z8 {
+    box-shadow: none !important;
+}
+
+.mat-table {
+    font-family: $apm-font-family !important;
+}
+
+.mat-cell, .mat-footer-cell {
+    color: map-get($apm-colors, 'primary') !important;
+    font-size: map-get($apm-font-size, 'font-size-5') !important;
+}
+
+.mat-header-cell {
+    color: map-get($apm-colors, 'apm-black') !important;;
+    font-weight: bold;
+}
+
+tr.mat-header-row {
+    height: 40px !important;
+    background: map-get($apm-colors, 'apm-light-gray') !important;
+    border-top: 1px solid rgba(0,0,0,.12);
+}
+
+.mat-paginator, .mat-paginator-page-size .mat-select-trigger {
+    color: map-get($apm-colors, 'primary') !important;
+    font-family: $apm-font-family !important;
+    background: map-get($apm-colors, 'apm-light-gray') !important;
+    border-top: 1px solid rgba(0,0,0,.12);
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+.mat-paginator-container {
+    min-height: 40px !important;
+    height: 40px !important;
+}
+
+tr.mat-row, tr.mat-footer-row {
+    height: 30px !important;
+}
+
+.material-icons-add {
+    @extend .mat-icon-basic;
+    color: map-get($apm-colors, 'apm-green') !important;;
+    font-size: map-get($apm-font-size, 'font-size-1') !important;
+}
+
+.material-icons-login {
+    @extend .mat-icon-basic;
+    font-size: map-get($apm-font-size, 'font-size-1') !important;
+}
+

@@ -1,0 +1,58 @@
+@import '../styles/variables';
+
+.abm-heading-1 {
+    font-size: map-get($apm-font-size, 'font-size-2');
+    font-weight: bold;
+    color: map-get($apm-colors, 'primary');
+    
+    @media screen and (max-width: 600px) {
+        font-size: map-get($apm-font-size, 'font-size-3');
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: map-get($apm-font-size, 'font-size-4');
+    }
+}
+
+.abm-heading-2 {
+    font-size: map-get($apm-font-size, 'font-size-0');
+    font-weight: bold;
+
+    @media screen and (max-width: 700px) {
+        font-size: map-get($apm-font-size, 'font-size-1');
+    }
+}
+
+.abm-heading-3 {
+    font-size: map-get($apm-font-size, 'font-size-2');
+}
+
+.abm-label {
+    font-size: map-get($apm-font-size, 'font-size-3');
+}
+
+.abm-label-1 {
+    font-size: map-get($apm-font-size, 'font-size-4');
+    font-family: $apm-font-family !important;
+
+    @media screen and (max-width: 500px) {
+        font-size: map-get($apm-font-size, 'font-size-5');
+    }
+}
+
+.abm-mandatory {
+    color: map-get($apm-colors, 'apm-red');
+    margin-left: 0.25rem;
+}
+
+.abm-link-1 {
+    color: map-get($apm-colors, 'apm-blue') !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    font-family: $apm-font-family !important;
+    font-size: map-get($apm-font-size, 'font-size-4');
+
+    &:hover {
+        text-decoration: underline !important;
+    }
+}

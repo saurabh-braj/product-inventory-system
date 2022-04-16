@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro&family=Roboto+Slab&display=swap');
+
+@import '~bootstrap/scss/bootstrap';
+@import '../styles/variables';
+@import '../styles/mat-overrides';
+@import '../styles/bootstrap-overrides';
+
+html {
+    font-size: 62.5% !important;
+}
+
+body { 
+    background: linear-gradient(135deg, #17597f, #17597f);
+    font-family: $apm-font-family !important;
+    margin: 0;
+    height: 100vh;
+}

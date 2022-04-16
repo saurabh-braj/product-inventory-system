@@ -1,0 +1,11 @@
+<div class="modal-header custom-header">
+    <h4 class="modal-title" id="modal-basic-title">Confirmation !</h4>
+    <span (click)="close(false)" class="material-icons material-icons-close">highlight_off</span>
+</div>
+<div class="modal-body">
+    <div class="abm-label">Are you sure, you want to delete this product?</div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="close(false)">Close</button>
+    <button type="button" class="btn btn-danger" (click)="close(true)">Yes, Please</button>
+</div>
