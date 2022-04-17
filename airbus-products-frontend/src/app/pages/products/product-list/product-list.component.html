@@ -1,56 +1,51 @@
-<div>
-    <div class="list-table-container">
-        <table mat-table [dataSource]="filteredProductsData" class="mat-elevation-z8 product-list-container">
+<div class="list-table-container" *ngIf="pagenatedProducts">
+    <table mat-table [dataSource]="pagenatedProducts.content" class="mat-elevation-z8 product-list-container">
 
-            <ng-container matColumnDef="productId">
-                <th mat-header-cell *matHeaderCellDef>Product Id</th>
-                <td mat-cell *matCellDef="let element">{{element.productId}}</td>
-            </ng-container>
+        <ng-container matColumnDef="productId">
+            <th mat-header-cell *matHeaderCellDef>Product Id</th>
+            <td mat-cell *matCellDef="let element">{{element.productId}}</td>
+        </ng-container>
 
-            <ng-container matColumnDef="category">
-                <th mat-header-cell *matHeaderCellDef>Product Category</th>
-                <td mat-cell *matCellDef="let element">{{element.category.name}}</td>
-            </ng-container>
+        <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef>Product Category</th>
+            <td mat-cell *matCellDef="let element">{{element.category.name}}</td>
+        </ng-container>
 
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef>Product Name</th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-            </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Product Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="description">
-                <th mat-header-cell *matHeaderCellDef>Product Description</th>
-                <td mat-cell *matCellDef="let element">{{element.description}}</td>
-            </ng-container>
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Product Description</th>
+            <td mat-cell *matCellDef="let element">{{element.description}}</td>
+        </ng-container>
 
-            <ng-container matColumnDef="units">
-                <th mat-header-cell *matHeaderCellDef >Units</th>
-                <td mat-cell *matCellDef="let element">{{element.units}}</td>
-            </ng-container>
+        <ng-container matColumnDef="units">
+            <th mat-header-cell *matHeaderCellDef>Units</th>
+            <td mat-cell *matCellDef="let element">{{element.units}}</td>
+        </ng-container>
 
-            <ng-container matColumnDef="actions">
-                <th mat-header-cell *matHeaderCellDef>
-                    <div class="d-flex align-items-center">
-                        <span>Actions</span>
-                        <span class="ms-3 material-icons-outlined material-icons-add" 
-                            (click)="addNewProduct()">add_circle_outline</span>
-                    </div>
-                </th>
-                <td mat-cell *matCellDef="let element">
-                    <span class="material-icons material-icons-edit"(click)="onUpdate(element)">edit</span>
-                    <span class="material-icons material-icons-delete"(click)="onDelete(element.id)">delete</span>
-                </td>
-            </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>
+                <div class="d-flex align-items-center">
+                    <span>Actions</span>
+                    <span class="ms-3 material-icons-outlined material-icons-add"
+                        (click)="addNewProduct()">add_circle_outline</span>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <span class="material-icons material-icons-edit" (click)="onUpdate(element)">edit</span>
+                <span class="material-icons material-icons-delete" (click)="onDelete(element.id)">delete</span>
+            </td>
+        </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-    </div>
-    <div class="pagination-container">
-        <mat-paginator
-            [pageSizeOptions]="[10]"
-            [length]="totalProducts"
-            [pageSize]="10"
-            (page)="onPageChange($event)">
-        </mat-paginator>
-    </div>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+<div class="pagination-container" *ngIf="pagenatedProducts">
+    <mat-paginator [pageSizeOptions]="[10]" [length]="pagenatedProducts.totalElements" [pageSize]="10"
+        (page)="onPageChange($event)" showFirstLastButtons="true">
+    </mat-paginator>
 </div>

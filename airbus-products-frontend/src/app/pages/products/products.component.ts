@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
 import { NgbModal, NgbModalConfig, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-popup.component';
-import { ProductCategory, Product } from './products.model';
+import { getProductPageModel } from './product.functions';
+import { ProductCategory, Product, PagenatedProduct } from './products.model';
 import { ProductsService } from './products.service';
 
 @Component({
@@ -13,9 +13,9 @@ import { ProductsService } from './products.service';
 })
 export class ProductsComponent implements OnInit {
 
-  products: Product[] = [];
+  pagenatedProducts!: PagenatedProduct;
   productCategory!: ProductCategory[];
-  totalProducts!: number;
+  currentPage = 0;
 
   constructor(private productsService: ProductsService,
     config: NgbModalConfig, private modalService: NgbModal) {
@@ -24,7 +24,7 @@ export class ProductsComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.getProducts(this.currentPage);
     this.getProductCategories();
   }
 
@@ -34,10 +34,13 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  getProducts() {
-    this.productsService.getProducts().subscribe((data: Product[]) => {
-      this.products = data;
-      this.totalProducts = this.products.length;
+  getProducts(currentPage: number = 0, product?: Product) {
+    const pageRequestModel = getProductPageModel(currentPage);
+    if (product) {
+      pageRequestModel.product = product;
+    }
+    this.productsService.getProducts(pageRequestModel).subscribe((data: PagenatedProduct) => {
+      this.pagenatedProducts = data;
     });
   }
 
@@ -66,10 +69,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onFilterChange(product: Product) {
-    this.productsService.filterProducts(product).subscribe((res: Product[]) => {
-        this.products = res;
-        this.totalProducts = this.products.length;
-    })
+    this.getProducts(0, product);
   }
 
 }

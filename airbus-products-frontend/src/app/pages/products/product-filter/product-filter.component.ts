@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Product, ProductCategory, productFields } from '../products.model';
+import { productFields } from 'src/app/constants';
+import { Product, ProductCategory } from '../products.model';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -21,6 +22,10 @@ export class ProductFilterComponent implements OnInit {
   constructor(private productService: ProductsService) { }
 
   ngOnInit(): void {
+    this.initializeForm();
+  }
+
+  initializeForm() {
     this.filterForm = this.productService.initializeFilterForm();
     this.filterForm.valueChanges.subscribe(() => {
       this.onFilterData();
@@ -40,8 +45,7 @@ export class ProductFilterComponent implements OnInit {
   }
 
   onClearFilters() {
-    this.filterForm.reset();
-    this.filterForm.get(productFields.CATEGORY)?.setValue(-1);
+    this.initializeForm();
     this.resetEmmiter.emit()
   }
 

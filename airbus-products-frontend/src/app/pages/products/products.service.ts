@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { productFields } from 'src/app/constants';
 import { environment } from 'src/environments/environment';
-import { Product, ProductCategory, productFields } from './products.model';
+import { PagenatedProduct, PageRequestModel, Product, ProductCategory } from './products.model';
 
 @Injectable({
   providedIn: 'root'
@@ -43,8 +44,8 @@ export class ProductsService {
     });
   }
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${environment.apiBaseUrl}/secured/api/products`);
+  getProducts(pageRequestModel: PageRequestModel): Observable<PagenatedProduct> {
+    return this.http.post<PagenatedProduct>(`${environment.apiBaseUrl}/secured/api/products/paginated`, pageRequestModel);
   }
 
   addNewProduct(productData: Product): Observable<Product> {
